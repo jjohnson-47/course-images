@@ -88,68 +88,76 @@ par(xpd = xpd)   # restore clipping
 dev.off()
 
 ##############################################################################
-# Single‑panel “dashboard” figure -------------------------------------------
+# ── SINGLE‑PANEL “DASHBOARD”  (cleaned‑up layout) ───────────────────────────
 ##############################################################################
 png("test_score_comprehensive.png", width = 1000, height = 650, res = 120)
 
-layout(matrix(c(1,1,2,3), nrow = 2, byrow = TRUE),
-       heights = c(2,1))          # big histogram strip on top
-par(mar = c(4.2,4.2,3.8,1.2), cex = .85)
+layout(matrix(c(1,1,2,3), nrow = 2, byrow = TRUE), heights = c(2,1))
+par(mar = c(4.2, 4.2, 3.8, 1.2), cex = .9)      # slightly larger text
 
-## 1. Histogram with annotations --------------------------------------------
+## ── 1. HISTOGRAM ────────────────────────────────────────────────────────────
 h <- hist(test_scores, breaks = 8, col = "#c6e2ff", border = "#003366",
           main = "Test‑score analysis  (score = 87)", xlab = "Score",
           ylab = "Frequency", xlim = c(65, 100))
 
-abline(v = analyzed_score, col = "red", lwd = 4)
-# room above tallest bar
 hist_ymax <- max(h$counts)
 
-text(analyzed_score, hist_ymax * 1.05,
-     sprintf("Score = 87\nz = %.2f\n%.1fth %%ile",
-             z_score, percentile_rank),
-     col = "red", font = 2, adj = .5, xpd = NA)
+# analysed score
+abline(v = analyzed_score, col = "red", lwd = 4)
+text(analyzed_score + 2.5,                  # → move right of red line
+     hist_ymax * 0.80,                     # ↓ a bit lower
+     sprintf("Score = %d\nz = %.2f\n%.1fth %%ile",
+             analyzed_score, z_score, percentile_rank),
+     col = "red", font = 2, adj = c(0, .5))
 
+# quartile markings
 abline(v = quartiles, col = "forestgreen", lwd = 2, lty = 2)
-text(quartiles, rep(-.3,3), labels = c("Q1","Median","Q3"),
+text(quartiles,
+     rep(-0.6, 3),                         # ↓ farther below the axis
+     labels = c("Q1", "Median", "Q3"),
      col = "forestgreen", font = 2, adj = .5, xpd = NA)
 
+# mean
 abline(v = mean_score, col = "blue", lwd = 2, lty = 3)
-text(mean_score, hist_ymax * 0.9,
+text(mean_score,
+     hist_ymax * 0.92,
      sprintf("Mean = %.1f", mean_score),
      col = "blue", font = 2, adj = .5)
 
 legend("topleft",
-       legend = c("Score","Mean","Quartiles"),
-       col    = c("red","blue","forestgreen"),
-       lwd    = c(4,2,2), lty = c(1,3,2), bg = "white", box.lty = 0, cex = .8)
+       legend = c("Score", "Mean", "Quartiles"),
+       col    = c("red", "blue", "forestgreen"),
+       lwd    = c(4, 2, 2), lty = c(1, 3, 2),
+       bg = "white", box.lty = 0, cex = .8)
 
-## 2. Box‑plot ---------------------------------------------------------------
+## ── 2. BOX‑PLOT ─────────────────────────────────────────────────────────────
 boxplot(test_scores, horizontal = TRUE, col = "#ccffcc",
         main = "Quartiles and individual score", xlab = "Score")
-points(analyzed_score, 1, col = "red", pch = 19, cex = 1.8)
+points(analyzed_score, 1, col = "red", pch = 19, cex = 1.6)
 
-## 3. Summary “table” --------------------------------------------------------
+## ── 3. SUMMARY “TABLE” ──────────────────────────────────────────────────────
 plot.new(); plot.window(xlim = 0:1, ylim = 0:1)
 mtext("Analysis summary", font = 2, cex = 1.05, side = 3, adj = 0.02, line = 1)
 
 summary_lines <- c(
-  sprintf("Raw score          : %d",   analyzed_score),
-  sprintf("Z‑score            : %.2f", z_score),
-  sprintf("Percentile rank    : %.1f%%", percentile_rank),
-  "Quartile            : 3rd (above median)",
+  sprintf("Raw score        : %d",   analyzed_score),
+  sprintf("Z‑score          : %.2f", z_score),
+  sprintf("Percentile rank  : %.1f%%", percentile_rank),
+  "Quartile          : 3rd (above median)",
   "",
   "Interpretation:",
-  " • above‑average performance",
-  " • better than ≈60% of the class",
-  " • solidly in the upper half")
+  "  • above‑average performance",
+  "  • better than ≈60% of the class",
+  "  • solidly in the upper half")
 
-text(0.02, seq(.9, .1, length = length(summary_lines)),
-     summary_lines, adj = 0, family = "mono")
+# print lines with consistent spacing
+y <- 0.88
+for (ln in summary_lines) {
+  text(0.02, y, ln, adj = 0, family = "mono")
+  y <- y - 0.08                     # uniform line spacing
+}
 
 dev.off()
 
-cat("✓ Images written:\n",
-    "  • test_score_relative_standing.png (4‑panel)\n",
-    "  • test_score_comprehensive.png     (dashboard)\n")
+cat("✓ test_score_comprehensive.png regenerated with improved layout\n")
 
