@@ -1,0 +1,23 @@
+OUTLIER DETECTION REPORT
+========================
+
+DETECTION RULES:
+• Normal values: Within ±2 standard deviations
+• Moderate outliers: 2 to 3 standard deviations away
+• Extreme outliers: Beyond ±3 standard deviations
+
+EPA MILEAGE DATA:
+Mean ±2 SD: [ 32.1 ,  41.7 ] mpg
+Mean ±3 SD: [ 29.7 ,  44.1 ] mpg
+Result: No outliers detected in EPA data
+
+PRACTICAL APPLICATIONS:
+• Quality control: Flag products outside normal ranges
+• Data cleaning: Identify potential measurement errors
+• Research: Detect unusual subjects or responses
+• Grading: Identify exceptional performance (high or low)
+
+RULE SELECTION:
+• Symmetric data: Use Empirical Rule (68-95-99.7)
+• Skewed data: Use Chebyshev's Rule (safer, broader)
+• Unknown distribution: Always use Chebyshev's Rule

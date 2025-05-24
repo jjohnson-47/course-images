@@ -1,0 +1,16 @@
+INTERPRETATION RULES SUMMARY
+============================
+
+CHEBYSHEV'S RULE (Any Distribution):
+• At least 0% within ±1 SD
+• At least 75% within ±2 SD
+• At least 89% within ±3 SD
+
+EMPIRICAL RULE (Mound-Shaped Only):
+• Approximately 68% within ±1 SD
+• Approximately 95% within ±2 SD
+• Approximately 99.7% within ±3 SD
+
+WHEN TO USE WHICH:
+• Chebyshev's: Always safe, any data shape
+• Empirical: More precise, but only for bell-shaped data

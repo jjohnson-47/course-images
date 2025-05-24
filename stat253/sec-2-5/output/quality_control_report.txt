@@ -1,0 +1,17 @@
+QUALITY CONTROL APPLICATIONS REPORT
+===================================
+
+BATTERY LIFE CONTROL:
+Mean ±1 SD: [ 30 ,  42 ] months
+Mean ±2 SD: [ 24 ,  48 ] months
+Mean ±3 SD: [ 18 ,  54 ] months
+
+BOTTLE FILLING CONTROL:
+Target:  500  ml
+Warning limits: [ 494 ,  506 ] ml
+Action limits: [ 491 ,  509 ] ml
+
+PRACTICAL INTERPRETATION:
+• ±1 SD: Expected normal variation
+• ±2 SD: 95% of normal production (5% outside = investigate)
+• ±3 SD: 99.7% of normal production (0.3% outside = take action)
