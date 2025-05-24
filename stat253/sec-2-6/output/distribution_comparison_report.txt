@@ -1,0 +1,13 @@
+RELATIVE STANDING COMPARISON REPORT
+===================================
+
+KEY FINDING: Same raw score = Different relative standing
+
+     Dataset  Mean    SD Score_85_Z Score_85_Percentile
+1    Class A  84.1  10.9       0.09                53.3
+2    Class B  74.4  15.1       0.70                73.3
+3 SAT Scores 500.0 100.0      -4.15                 0.0
+
+IMPORTANT LESSON:
+Raw scores by themselves are meaningless without context!
+Always consider the distribution when interpreting scores.

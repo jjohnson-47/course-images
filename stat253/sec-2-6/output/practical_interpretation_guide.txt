@@ -1,0 +1,28 @@
+PRACTICAL INTERPRETATION GUIDE
+==============================
+
+PERCENTILES IN DIFFERENT CONTEXTS:
+
+1. STANDARDIZED TESTS (SAT, GRE, etc.):
+   • 99th percentile: Elite performance
+   • 90th+ percentile: Excellent, competitive for top programs
+   • 75th+ percentile: Good, above average
+   • 50th percentile: Average performance
+   • Below 25th: May need additional preparation
+
+2. GROWTH CHARTS (Medical):
+   • Above 95th percentile: Monitor for abnormal growth
+   • 25th-75th percentile: Normal range
+   • Below 5th percentile: May need medical evaluation
+
+3. EMPLOYEE PERFORMANCE:
+   • Top 10%: Promotion candidates
+   • 75th+ percentile: High performers
+   • 25th-75th: Average performers
+   • Bottom 10%: Performance improvement needed
+
+REMEMBER:
+• Percentiles show relative position, not absolute quality
+• Same raw score can mean different things in different groups
+• Z-scores allow comparison across different distributions
+• Always consider the context and reference group
