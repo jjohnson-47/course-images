@@ -1,0 +1,18 @@
+VARIABILITY ANALYSIS REPORT
+===========================
+
+1. EPA MILEAGE DATA:
+   Mean: 36.88 mpg
+   Standard Deviation: 2.4 mpg
+   Interpretation: Cars typically get 36.9 ± 2.4 mpg
+
+2. KEY INSIGHTS:
+   • Standard deviation is in original units (mpg, dollars, etc.)
+   • Larger SD = more variability
+   • Range can be misleading with large datasets
+   • Variance uses (n-1) for unbiased estimation
+
+3. PRACTICAL APPLICATIONS:
+   • Quality control: Lower variability = more consistent products
+   • Risk assessment: Higher variability = more risk
+   • Performance evaluation: Consider both average AND consistency
