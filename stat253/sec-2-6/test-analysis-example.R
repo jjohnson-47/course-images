@@ -104,7 +104,7 @@ hist_ymax <- max(h$counts)
 
 # analysed score
 abline(v = analyzed_score, col = "red", lwd = 4)
-text(analyzed_score + 2.5,                  # → move right of red line
+text(analyzed_score + 0.5,                  # → move right of red line
      hist_ymax * 0.80,                     # ↓ a bit lower
      sprintf("Score = %d\nz = %.2f\n%.1fth %%ile",
              analyzed_score, z_score, percentile_rank),
@@ -113,7 +113,7 @@ text(analyzed_score + 2.5,                  # → move right of red line
 # quartile markings
 abline(v = quartiles, col = "forestgreen", lwd = 2, lty = 2)
 text(quartiles,
-     rep(-0.6, 3),                         # ↓ farther below the axis
+     rep(-0.45, 3),                         # ↓ farther below the axis
      labels = c("Q1", "Median", "Q3"),
      col = "forestgreen", font = 2, adj = .5, xpd = NA)
 
@@ -135,27 +135,40 @@ boxplot(test_scores, horizontal = TRUE, col = "#ccffcc",
         main = "Quartiles and individual score", xlab = "Score")
 points(analyzed_score, 1, col = "red", pch = 19, cex = 1.6)
 
-## ── 3. SUMMARY “TABLE” ──────────────────────────────────────────────────────
-plot.new(); plot.window(xlim = 0:1, ylim = 0:1)
-mtext("Analysis summary", font = 2, cex = 1.05, side = 3, adj = 0.02, line = 1)
+## ── 3. SUMMARY “TABLE”  ────────────────────────────────────────────────────
+# Give the panel its own tight margins so text has room
+par(mar = c(1.2, 1.2, 2.2, 1.2))   # bottom, left, top, right
 
+plot.new()                         # empty canvas that fills the panel
+
+# Title
+title_text <- "Analysis summary"
+mtext(title_text, side = 3, adj = 0, font = 2, line = 0.2, cex = 1.0)
+
+# Build the lines we want to display
 summary_lines <- c(
-  sprintf("Raw score        : %d",   analyzed_score),
-  sprintf("Z‑score          : %.2f", z_score),
-  sprintf("Percentile rank  : %.1f%%", percentile_rank),
-  "Quartile          : 3rd (above median)",
+  sprintf("Raw score       : %d",   analyzed_score),
+  sprintf("Z‑score         : %.2f", z_score),
+  sprintf("Percentile rank : %.1f%%", percentile_rank),
+  "Quartile         : 3rd (above median)",
   "",
   "Interpretation:",
   "  • above‑average performance",
   "  • better than ≈60% of the class",
-  "  • solidly in the upper half")
+  "  • solidly in the upper half"
+)
 
-# print lines with consistent spacing
-y <- 0.88
-for (ln in summary_lines) {
-  text(0.02, y, ln, adj = 0, family = "mono")
-  y <- y - 0.08                     # uniform line spacing
+# Calculate line spacing from character height so text never overlaps
+line_ht  <- strheight("A", cex = 0.88) * 1.25   # 1.25× char height for padding
+y_top    <- 0.88                                # start a bit below the title
+x_left   <- 0.02
+
+for (i in seq_along(summary_lines)) {
+  y_pos <- y_top - (i - 1) * line_ht
+  text(x_left, y_pos, summary_lines[i],
+       adj = 0, family = "mono", cex = 0.88)
 }
+
 
 dev.off()
 
