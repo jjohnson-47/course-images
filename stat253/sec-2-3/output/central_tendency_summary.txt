@@ -1,0 +1,12 @@
+Central Tendency Analysis Results
+=================================
+
+Gas Mileage Example (n=5):
+Data: 36.3, 37.1, 35.9, 38.2, 36.8 
+Mean: 36.86 mpg
+Median: 36.8 mpg
+
+EPA Dataset (n=10):
+Data: 32.7, 33.9, 35.9, 36.3, 36.8, 37.1, 37.9, 38.2, 39, 41 
+Mean: 36.88 mpg
+Median: 36.95 mpg
