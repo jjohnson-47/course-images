@@ -1,0 +1,19 @@
+OUTLIER DETECTION METHOD COMPARISON
+===================================
+
+DATASET: Gas Mileage (n =  100 )
+
+BOX PLOT METHOD RESULTS:
+Mild outliers: 30, 44.9 
+Extreme outliers: 30, 44.9 
+
+Z-SCORE METHOD RESULTS:
+Possible outliers (|z| > 2): 30, 44.9 
+Outliers (|z| > 3): 30, 44.9 
+
+AGREEMENT:
+Identified by both methods: 30, 44.9 
+
+RECOMMENDATION:
+Use box plot method for exploratory analysis and robust detection.
+Use z-score method for precise numerical criteria with normal data.

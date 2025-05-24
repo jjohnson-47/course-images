@@ -1,0 +1,19 @@
+OUTLIER DETECTION METHODS SUMMARY
+=================================
+
+BOX PLOT METHOD:
+1. Calculate Q1, Q3, and IQR
+2. Inner fences: Q1 ± 1.5×IQR, Q3 ± 1.5×IQR
+3. Outer fences: Q1 ± 3×IQR, Q3 ± 3×IQR
+4. Mild outliers: Beyond inner fences
+5. Extreme outliers: Beyond outer fences
+
+ADVANTAGES:
+• Visual method
+• Robust to existing outliers
+• Based on quartiles (not affected by extreme values)
+
+THREE CAUSES OF OUTLIERS:
+1. Measurement error (investigate and possibly remove)
+2. Different population (investigate context)
+3. Rare event (legitimate, keep in analysis)
